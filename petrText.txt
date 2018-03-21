@@ -99,6 +99,9 @@ public class POST_SignIn extends Base {
 
 	@Step("getStatus")
 	public String getStatus() {
+		// commit 52
+		// commit 52
+		// commit 52
 		String status = "" + response.getStatusCode();
 		if (!status.equals("200"))
 			try {
@@ -119,7 +122,10 @@ public class POST_SignIn extends Base {
 	}
 
 	@Step("Get user's data from response")
-	public JSONObject getUserDate() {			
+	public JSONObject getUserDate() {
+		// commit 52
+		// commit 52
+		// commit 52
 		try {
 			return new JSONObject(response.asString()).getJSONObject("user");
 		} catch (Exception e) {
