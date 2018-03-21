@@ -1,0 +1,25 @@
+package com.newbook.auth;
+
+import com.newbook.Base;
+
+import org.json.JSONObject;
+
+import io.qameta.allure.Step;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+
+public class POST_SignIn extends Base {
+	@Step("getStatus")
+	public String getStatus() {
+		String status = "" + response.getStatusCode();
+		if (!status.equals("200"))
+			try {
+				return response.then().contentType(ContentType.JSON).extract().path("detail[0]");
+			} catch (Exception e) {
+				return "" + response.getStatusCode();
+			}
+		return status;
+	}
+}

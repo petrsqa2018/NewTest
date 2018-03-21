@@ -89,6 +89,9 @@ public class POST_SignIn extends Base {
 	////////////////////////////// public START//////////////////////////////
 	@Step("Return JSON as string")
 	public String toString() {
+		// commit 51
+		// commit 51
+		// commit 51
 		return new JSONObject(response.asString()).toString();
 	}
 
@@ -111,7 +114,9 @@ public class POST_SignIn extends Base {
 
 	@Step("Get token from response")
 	public String getToken() {
-		try {
+		// commit 51
+		// commit 51
+		// commit 51		try {
 			return response.then().contentType(ContentType.JSON).extract().path("token_data.token").toString();
 		} catch (Exception e) {
 			return null;
@@ -119,7 +124,10 @@ public class POST_SignIn extends Base {
 	}
 
 	@Step("Get user's data from response")
-	public JSONObject getUserDate() {			
+	public JSONObject getUserDate() {	
+		// commit 51
+		// commit 51
+		// commit 51
 		try {
 			return new JSONObject(response.asString()).getJSONObject("user");
 		} catch (Exception e) {
