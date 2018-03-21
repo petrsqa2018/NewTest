@@ -1,0 +1,34 @@
+package com.newbook.auth;
+
+import com.newbook.Base;
+
+import org.json.JSONObject;
+
+import io.qameta.allure.Step;
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+
+public class POST_SignIn extends Base {
+	@Step("Get token from response")
+	public String getToken() {
+		try {
+			return response.then().contentType(ContentType.JSON).extract().path("token_data.token").toString();
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	@Step("Get user's data from response")
+	public JSONObject getUserDate() {
+		// commit 52
+		try {
+			return new JSONObject(response.asString()).getJSONObject("user");
+		} catch (Exception e) {
+			return null;
+		}
+		// vommit 52
+	}
+	////////////////////////////// public EDN//////////////////////////////
+}
